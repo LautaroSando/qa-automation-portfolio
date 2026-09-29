@@ -25,7 +25,7 @@ The focus is engineering quality, not test volume. The goal is a clean, scalable
 
 | Area | Tools |
 | --- | --- |
-| Web automation | Playwright Test, TypeScript (strict mode), Node.js 20+ |
+| Web automation | Playwright Test 1.63, TypeScript (strict mode), Node.js 24 LTS |
 | Patterns | Page Object Model, Playwright fixtures, data-driven tests |
 | CI/CD | GitHub Actions |
 | Reporting | Playwright HTML report, traces, screenshots and videos on failure |
@@ -97,7 +97,14 @@ Key design decisions:
 
 ## Installation
 
-Requirements: Node.js 20 or newer.
+Node.js versions:
+
+| Version | Where it applies |
+| --- | --- |
+| Node.js 24 LTS | Recommended. Used for local development and in CI. Pinned in `.nvmrc`. |
+| Node.js 20 | Minimum required by Playwright 1.63, declared in `package.json`. Supported but not tested in CI. |
+
+With [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows), run `nvm use` in the project folder to switch to the pinned version.
 
 ```bash
 npm install
@@ -159,7 +166,7 @@ Both captures come from a local run with tracing enabled for every test. In CI, 
 
 The workflow in `.github/workflows/playwright.yml` runs on every push to `main` and every pull request targeting `main`. It performs these steps:
 
-1. Sets up Node.js 24 with npm caching.
+1. Sets up the Node.js version pinned in `.nvmrc`, with npm caching. CI and local development use the same version.
 2. Installs dependencies with `npm ci`.
 3. Type-checks the project.
 4. Installs Chromium and its system dependencies.
@@ -193,6 +200,7 @@ qa-automation-portfolio/
 ├── utils/
 │   ├── env.ts                # Environment variables with validation
 │   └── products.ts           # Price formatting and expected sort orders
+├── .nvmrc                    # Node.js version used locally and in CI
 ├── playwright.config.ts
 ├── tsconfig.json
 └── package.json
