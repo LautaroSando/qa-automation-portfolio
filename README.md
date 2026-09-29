@@ -1,5 +1,6 @@
 # QA Automation Portfolio
 
+[![Playwright Tests](https://github.com/LautaroSando/qa-automation-portfolio/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/LautaroSando/qa-automation-portfolio/actions/workflows/playwright.yml)
 ![Playwright](https://img.shields.io/badge/Playwright-1.63-2EAD33?logo=playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
@@ -192,7 +193,7 @@ The only credentials in the repository are the public demo users published on th
 - API automation with Karate DSL (Java + Maven) in its own folder, so the toolchains stay separate.
 - Cross-browser execution on Firefox and WebKit. The config is ready for extra projects.
 - Reusing an authenticated session through `storageState` if the suite grows enough for UI login to matter.
-- Published reports and a status badge from the CI pipeline.
+- Publishing the HTML report from each CI run on GitHub Pages. Today it is available as a downloadable artifact.
 
 ## Author
 
