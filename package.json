@@ -1,0 +1,27 @@
+{
+  "name": "qa-automation-portfolio",
+  "version": "1.0.0",
+  "description": "Modular QA automation framework (Playwright + TypeScript) targeting SauceDemo",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:login": "playwright test tests/login",
+    "test:products": "playwright test tests/products",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "browsers:install": "playwright install chromium"
+  },
+  "author": "Lautaro Sandoval",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "typescript": "^7.0.2"
+  }
+}
