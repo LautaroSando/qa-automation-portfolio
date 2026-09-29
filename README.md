@@ -143,6 +143,18 @@ Every run produces Playwright's native HTML report in `playwright-report/`. Open
 
 The report shows each test's name, status, duration and error message. Failed tests also include a screenshot, a video and a Playwright trace. The trace can be opened from the report and replays every action with DOM snapshots, network calls and console output.
 
+### Execution evidence
+
+HTML report of a full run, with all 15 tests passing on Chromium:
+
+![Playwright HTML report with 15 passed tests](docs/images/html-report.png)
+
+Trace viewer replaying the multi-product cart test. The final step checks the cart prices against the test data, and the snapshot shows the page at that moment:
+
+![Playwright trace viewer showing the cart test](docs/images/trace-viewer.png)
+
+Both captures come from a local run with tracing enabled for every test. In CI, traces are recorded only on retries to keep runs fast.
+
 ## CI/CD
 
 The workflow in `.github/workflows/playwright.yml` runs on every push to `main` and every pull request targeting `main`. It performs these steps:
@@ -160,6 +172,7 @@ The workflow in `.github/workflows/playwright.yml` runs on every push to `main` 
 qa-automation-portfolio/
 ├── .github/workflows/
 │   └── playwright.yml        # CI pipeline
+├── docs/images/              # Report and trace screenshots used in this README
 ├── fixtures/
 │   └── index.ts              # Extended `test` with page objects and login state
 ├── pages/
@@ -195,6 +208,19 @@ The only credentials in the repository are the public demo users published on th
 - Reusing an authenticated session through `storageState` if the suite grows enough for UI login to matter.
 - Publishing the HTML report from each CI run on GitHub Pages. Today it is available as a downloadable artifact.
 
+## Services
+
+This repository shows the way I work on client projects. I can help your team with:
+
+- **Test automation frameworks from scratch.** Playwright and TypeScript projects with Page Object Model, fixtures and test data organized to grow with your product.
+- **Regression suites for critical flows.** Automating login, checkout, forms and other flows that must never break, with tests designed to avoid false positives.
+- **CI/CD integration.** Running your tests on every push or pull request with GitHub Actions, including reports and failure evidence.
+- **Improving existing suites.** Fixing flaky tests, replacing fixed waits, stabilizing locators and removing duplication.
+- **Test design and documentation.** Choosing what to automate, writing clear scenarios and documenting how to run and extend them.
+
 ## Author
 
 **Lautaro Sandoval** — QA Automation Engineer
+
+- GitHub: [@LautaroSando](https://github.com/LautaroSando)
+- Available for freelance projects. Get in touch through GitHub.
